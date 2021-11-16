@@ -5,10 +5,15 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
 
-  <!-- Listener -->
-  <listener>
-    <listener-class>me.hellonayeon.MyListener</listener-class>
-  </listener>
+  <context-param>
+    <param-name>contextClass</param-name>
+    <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+  </context-param>
+
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>me.hellonayeon.AppConfig</param-value>
+  </context-param>
 
   <!-- Filter -->
   <filter>
@@ -21,6 +26,11 @@
     <!-- 필터를 특정 서블릿에 적용할 것인지? 특정 URL에 적용할 것인지? (URL 패턴으로 적용 가능) -->
     <servlet-name>hello</servlet-name>
   </filter-mapping>
+
+  <!-- Listener -->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
 
   <!-- Servlet -->
   <servlet>
