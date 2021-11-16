@@ -5,6 +5,24 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
 
+  <!-- Listener -->
+  <listener>
+    <listener-class>me.hellonayeon.MyListener</listener-class>
+  </listener>
+
+  <!-- Filter -->
+  <filter>
+    <filter-name>myFilter</filter-name>
+    <filter-class>me.hellonayeon.MyFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>myFilter</filter-name>
+    <!-- 필터를 특정 서블릿에 적용할 것인지? 특정 URL에 적용할 것인지? (URL 패턴으로 적용 가능) -->
+    <servlet-name>hello</servlet-name>
+  </filter-mapping>
+
+  <!-- Servlet -->
   <servlet>
     <servlet-name>hello</servlet-name>
     <servlet-class>me.hellonayeon.HelloServlet</servlet-class>
